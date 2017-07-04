@@ -67,5 +67,6 @@
 		<url-pattern>*.woff2</url-pattern>
 		<url-pattern>*.woff</url-pattern>
 		<url-pattern>*.ttf</url-pattern>
+		<url-pattern>*.svg</url-pattern>
 	</servlet-mapping>
 </web-app>

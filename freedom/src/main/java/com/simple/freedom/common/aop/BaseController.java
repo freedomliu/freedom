@@ -1,5 +1,11 @@
 package com.simple.freedom.common.aop;
 
-public class BaseController {
+import org.springframework.web.servlet.ModelAndView;
 
+public class BaseController {
+	
+	public ModelAndView getMV()
+	{
+		return new ModelAndView();
+	}
 }

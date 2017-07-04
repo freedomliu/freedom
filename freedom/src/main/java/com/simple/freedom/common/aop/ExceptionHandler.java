@@ -18,7 +18,7 @@ public class ExceptionHandler implements HandlerExceptionResolver {
     public ModelAndView resolveException(HttpServletRequest request,  
             HttpServletResponse response, Object handler, Exception ex) {  
     	ModelAndView mv= new ModelAndView();
-    	mv.setViewName("other/exception");
+    	mv.setViewName("sys/exception");
     	mv.addObject("exception",ex.getMessage());
     	Logger logger = Logger.getLogger(handler.getClass());
     	logger.error(ex.getMessage());
