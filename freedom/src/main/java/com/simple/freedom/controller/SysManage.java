@@ -1,12 +1,14 @@
 package com.simple.freedom.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.simple.freedom.common.aop.BaseController;
+import com.simple.freedom.common.aop.SysVariable;
 
 @Controller
 @RequestMapping("/sys")
@@ -24,5 +26,13 @@ public class SysManage extends BaseController{
 		ModelAndView mv=getMV();
 		mv.setViewName(page);
 		return mv;
+	}
+	
+	@RequestMapping("/logout.do")
+	public void logout(HttpServletRequest request,HttpServletResponse response)throws Exception
+	{
+		//request.getSession().removeAttribute(SysVariable.USERSESSION);
+		request.getSession().invalidate();
+		response.sendRedirect(request.getContextPath()+"/login.do");
 	}
 }

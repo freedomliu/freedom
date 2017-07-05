@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.simple.freedom.beans.UserBean;
 import com.simple.freedom.common.aop.BaseController;
+import com.simple.freedom.common.aop.SingleSignOn;
+import com.simple.freedom.common.aop.SysVariable;
 import com.simple.freedom.common.util.CreateImageCode;
 
 /**
@@ -42,20 +44,41 @@ public class Login extends BaseController
 	}
 	
 	@RequestMapping("/login.do")
-	public String login()
+	public String login(HttpServletRequest request)
 	{
+		Object msg= request.getSession().getAttribute(SysVariable.MSG);
+		if(msg!=null)
+		{
+			request.setAttribute(SysVariable.MSG, msg);
+			request.getSession().removeAttribute(SysVariable.MSG);
+		}
 		return "index";
 	}
 	
-	@RequestMapping(value="/main.do")
-	public ModelAndView caseUser(HttpServletRequest request,HttpServletResponse response,UserBean user)
+	@RequestMapping("/main.do")
+	public String main(HttpServletRequest request)
+	{
+		return "main";
+	}
+	
+	/**
+	 * 登录验证
+	 * @param request
+	 * @param response
+	 * @param user
+	 * @return
+	 * @throws IOException
+	 */
+	@RequestMapping(value="/check.do")
+	public ModelAndView caseUser(HttpServletRequest request,HttpServletResponse response,UserBean user) throws IOException
 	{
 		ModelAndView mv= getMV();
 		mv.setViewName("index");
-		// 用户已登陆
-		if(request.getSession().getAttribute("adminsession")!=null)
+		Object msg= request.getSession().getAttribute(SysVariable.MSG);
+		if(msg!=null)
 		{
-			mv.setViewName("main");
+			mv.addObject(SysVariable.MSG, msg);
+			request.getSession().removeAttribute(SysVariable.MSG);
 			return mv;
 		}
 		// 跳过登陆直接访问 则跳转到首页
@@ -65,22 +88,23 @@ public class Login extends BaseController
 		}
 		if(user.getPassword()==null || user.getPassword().equals(""))
 		{
-			mv.addObject("msg", "请输入密码");
+			mv.addObject(SysVariable.MSG, "请输入密码");
 			return mv;
 		}
 		if(!request.getParameter("imgCode").toLowerCase().equals((
 				request.getSession().getAttribute("code")+"").toLowerCase()))
 		{
-			mv.addObject("msg", "验证码错误");
+			mv.addObject(SysVariable.MSG, "验证码错误");
 			return mv;
 		}
 		if(user.getUsername().equals("lxt"))
 		{
-			request.getSession().setAttribute("adminsession", user);
-			mv.setViewName("main");
-			return mv;
+			request.getSession().setAttribute(SysVariable.USERSESSION, user);
+			SingleSignOn.sessionUserCreated(user.getUsername(), request.getSession());
+			response.sendRedirect(request.getContextPath()+"/main.do");
+			return null;
 		}
-		mv.addObject("msg", "用户名或者密码错误");
+		mv.addObject(SysVariable.MSG, "用户名或者密码错误");
 		return mv;
 	}
 }

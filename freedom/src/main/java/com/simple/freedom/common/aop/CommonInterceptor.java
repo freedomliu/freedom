@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.simple.freedom.controller.Login;
+
 /**
  * 拦截器
  * 
@@ -13,17 +15,16 @@ import org.springframework.web.servlet.ModelAndView;
  *
  */
 public class CommonInterceptor implements HandlerInterceptor {
-	private final String ADMINSESSION = "adminsession";
 
 	// 拦截前处理
 	public boolean preHandle(HttpServletRequest request,
 			HttpServletResponse response, Object obj) throws Exception {
 		
-		Object sessionObj = request.getSession().getAttribute(ADMINSESSION);
+		Object sessionObj = request.getSession().getAttribute(SysVariable.USERSESSION);
 		if (sessionObj != null) {
 			return true;
 		}
-		response.sendRedirect("login.do");
+		response.sendRedirect(request.getContextPath()+"/login.do");
 		return false;
 	}
 

@@ -35,17 +35,17 @@
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="#" onclick="forwardPage('sys/menuManage')">菜单管理</a></li>
+                    <li><a href="javascript:void(0)" onclick="forwardPage('sys/menuManage')">菜单管理</a></li>
                 </ul>
             </li>
             </ul>
        </li>
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+      <li><a href="${pageContext.request.contextPath}/sys/logout.do"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
     </ul>
   </div>
 </nav>
-<div style="height:90%;background-color: blue;" id="contentMain">
+<div style="height:90%;" id="contentMain">
 	
 </div>
 </body>

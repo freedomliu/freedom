@@ -18,7 +18,7 @@
 		登陆
 	</div>
 	<div class="panel-body">
-<form id="formUser" method ="Post" action="${pageContext.request.contextPath}/main.do">
+<form id="formUser" method ="Post" action="${pageContext.request.contextPath}/check.do">
 <div id="loginBox" style="height: 150;width:250;">
 	<div class="input-group">
 	  <span class="input-group-addon ">
@@ -57,6 +57,12 @@
   $(function()
   { 
 	  $(window).resize(); 
+	  document.onkeydown = function(e){ 
+		    var ev = document.all ? window.event : e;
+		    if(ev.keyCode==13) {
+		    	formSubmit();
+		     }
+		}
   });
   
   function formSubmit()

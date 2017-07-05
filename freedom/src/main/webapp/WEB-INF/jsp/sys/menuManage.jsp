@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ include file="../common.jsp"%>
 <html>
 <body>
 	这是菜单管理界面
