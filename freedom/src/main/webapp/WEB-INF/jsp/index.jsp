@@ -8,12 +8,17 @@
   z-index:0;
   height:100%;
 }
+/* .Absolute-Center {  
+  margin: auto;  
+  position: absolute;  
+  top: 0; left: 0; bottom: 0; right: 0;  
+}  */
 </style>
 <html>
 <body>
 <div id="top-image">
 <img alt="" src="image/bg.jpg" width="100%">
-<div class="panel panel-primary" id="loginPanel" style="height: 250px;">
+<div class="panel panel-primary Absolute-Center" id="loginPanel" style="height: 250px;width: 300px">
 	<div class="panel-heading">
 		登陆
 	</div>
@@ -46,17 +51,8 @@
 </div>
 </body>
 <script>
- $(window).resize(function(){ 
-	     $("#loginPanel").css({ 
-	         position: "absolute", 
-	         left: ($(window).width() - $("#loginBox").outerWidth())/2, 
-	         top: ($(window).height() - $("#loginBox").outerHeight())/2 
-	     });        
-	 }); 
- 
   $(function()
   { 
-	  $(window).resize(); 
 	  document.onkeydown = function(e){ 
 		    var ev = document.all ? window.event : e;
 		    if(ev.keyCode==13) {
@@ -67,7 +63,6 @@
   
   function formSubmit()
   {
-	  debugger;
 	  if($("input[name='username']").val()=="")
 	  {
 		  $("#msg").html("请输入账号");

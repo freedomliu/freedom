@@ -12,6 +12,14 @@
 		
 	});
 </script>
+<style type="text/css">
+/* 居中 */
+.Absolute-Center {  
+  margin: auto;  
+  position: absolute;  
+  top: 0; left: 0; bottom: 0; right: 0;  
+} 
+</style>
 <title>freedom</title>
 </head>
 <body>

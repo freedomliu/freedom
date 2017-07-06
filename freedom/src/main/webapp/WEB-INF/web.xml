@@ -69,4 +69,10 @@
 		<url-pattern>*.ttf</url-pattern>
 		<url-pattern>*.svg</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 404页面配置 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/jsp/sys/page404.jsp</location>
+	</error-page>
 </web-app>
