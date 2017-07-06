@@ -42,8 +42,11 @@ public class SingleSignOn implements HttpSessionListener{
 	@Override
 	public void sessionDestroyed(HttpSessionEvent arg0) {
 		SingleSignOn.count--;
-		sessionManage.remove((((UserBean)arg0.getSession().getAttribute(SysVariable.USERSESSION)).getUsername()));
-		arg0.getSession().removeAttribute(SysVariable.USERSESSION);
+		if(arg0.getSession().getAttribute(SysVariable.USERSESSION)!=null)
+		{
+			sessionManage.remove((((UserBean)arg0.getSession().getAttribute(SysVariable.USERSESSION)).getUsername()));
+			arg0.getSession().removeAttribute(SysVariable.USERSESSION);
+		}
 	}
 
 	public static void sessionUserCreated(String userName,HttpSession sesion)
