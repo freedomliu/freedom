@@ -2,10 +2,10 @@
 <%@ include file="common.jsp"%>
 <html>
 <body>
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">我的主页</a>
+      <a class="navbar-brand" href="#">xxxxxx</a>
     </div>
     <div>
         <ul class="nav navbar-nav navbar-left">
@@ -27,7 +27,7 @@
         </ul>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown">
+      <li class="dropdown"> 
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               	系统
               <b class="caret"></b>
@@ -41,15 +41,20 @@
     </ul>
   </div>
 </nav>
-<div style="height:90%;" id="contentMain">
-	
+<div class="projects-header page-header" id="contentMain">
+
 </div>
 </body>
 </html>
 <script>
+	var urlFirst="${pageContext.request.contextPath}/sys/forwardPage.do?pageName=";
+	$(function(){
+		$("#contentMain").load(urlFirst+"contentPage/first");
+	})
+
 	function forwardPage(pageName)
 	{
 		debugger;
-		$("#contentMain").load("${pageContext.request.contextPath}/sys/forwardPage.do?pageName="+pageName);
+		$("#contentMain").load(urlFirst+pageName);
 	}
 </script>

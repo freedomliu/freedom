@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="shortcut icon" href="${pageContext.request.contextPath}/image/freedom.ico" type="image/x-icon" />
+	<link rel="icon" href="${pageContext.request.contextPath}/image/freedom.ico"/>
 	<link  href="${pageContext.request.contextPath}/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 	<script src="${pageContext.request.contextPath}/js/jquery/jquery-3.1.1.min.js"></script>
 	<script src="${pageContext.request.contextPath}/js/bootstrap/bootstrap.min.js"></script>

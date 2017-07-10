@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.simple.freedom.common.aop.BaseController;
-import com.simple.freedom.common.aop.SysVariable;
 
 @Controller
 @RequestMapping("/sys")
@@ -25,6 +24,7 @@ public class SysManage extends BaseController{
 		String page= request.getParameter("pageName")+"";
 		ModelAndView mv=getMV();
 		mv.setViewName(page);
+		logger.error(":sddddddddddddd");
 		return mv;
 	}
 	

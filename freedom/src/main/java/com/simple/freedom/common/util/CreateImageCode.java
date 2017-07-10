@@ -10,6 +10,11 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 
+/**
+ * 创建验证码
+ * @author liuxiangtao90
+ *
+ */
 public class CreateImageCode {
 	// 图片的宽度。
 	private int width = 160;
@@ -104,7 +109,8 @@ public class CreateImageCode {
 
 	// 得到随机字符
 	private String randomStr(int n) {
-		String str1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+		// 去除了 Il1
+		String str1 = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz234567890";
 		String str2 = "";
 		int len = str1.length() - 1;
 		double r;

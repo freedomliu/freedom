@@ -2,6 +2,11 @@ package com.simple.freedom.common.util;
 
 import java.math.BigDecimal;
 
+/**
+ * 简单运算精确帮助类
+ * @author liuxiangtao90
+ *
+ */
 public class ArithHelper 
 {
 	// 默认除法精度

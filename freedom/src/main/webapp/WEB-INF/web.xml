@@ -40,7 +40,7 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:spring-mvc.xml</param-value>
 		</init-param>
-		<load-on-startup>15</load-on-startup>
+		<load-on-startup>1</load-on-startup>
 		<async-supported>true</async-supported>
 	</servlet>
 	<servlet-mapping>
@@ -53,7 +53,7 @@
 	</welcome-file-list> -->
 	<!-- 配置SESSION超时，单位是分钟 -->
 	<session-config>
-		<session-timeout>1</session-timeout>
+		<session-timeout>15</session-timeout>
 	</session-config>
 
 	<!-- spring mvc 无法加载静态文件 添加如下映射 -->

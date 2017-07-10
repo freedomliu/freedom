@@ -8,17 +8,12 @@
   z-index:0;
   height:100%;
 }
-/* .Absolute-Center {  
-  margin: auto;  
-  position: absolute;  
-  top: 0; left: 0; bottom: 0; right: 0;  
-}  */
 </style>
 <html>
-<body>
+<body style="background-color:#87CEEB">
 <div id="top-image">
 <img alt="" src="image/bg.jpg" width="100%">
-<div class="panel panel-primary Absolute-Center" id="loginPanel" style="height: 250px;width: 300px">
+<div class="panel panel-primary Absolute-Center" id="loginPanel" style="height: 250px;width: 282px">
 	<div class="panel-heading">
 		登陆
 	</div>
