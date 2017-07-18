@@ -1,7 +1,14 @@
 package com.simple.freedom.test.beans;
 
-public class User {
-    private Integer id;
+import java.io.Serializable;
+
+public class User implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -2573800195359073056L;
+
+	private Integer id;
 
     private String username;
 

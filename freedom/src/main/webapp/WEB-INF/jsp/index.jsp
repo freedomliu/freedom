@@ -35,9 +35,9 @@
 	</div>
 	<div style="width: 250px;height: 40;margin-top: 10px" >
 	<img style="float:left;" alt="" id="codeImg" onclick="reImg()" src="${pageContext.request.contextPath}/getImageCode.do">
-		<input style="float:left;width: 150px" type="text" class="form-control" name="imgCode" placeholder="验证码">
+		<input style="float:left;width: 150px" type="text" autocomplete=off class="form-control" name="imgCode" placeholder="验证码">
 	</div>
-	<button type="button" onclick="formSubmit()" style="width: 250;margin-top: 5px" class="btn btn-info" data-loading-text="Loading...">登陆</button>
+	<button type="button" onclick="formSubmit()" style="width: 250;margin-top: 5px" class="btn btn-info"  data-loading-text="Loading...">登陆</button>
 	<label id="msg" style="color: red;float: right;">${msg}</label>
 </div>
 </form>

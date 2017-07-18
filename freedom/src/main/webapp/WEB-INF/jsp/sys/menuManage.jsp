@@ -35,6 +35,21 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="input-group">
+					<button class="btn btn-default" onclick="download3()" type="button">
+						创建excel并下载
+					</button>
+					<button class="btn btn-default" onclick="activemqTest()" type="button">
+						activemqTest—java實現
+					</button>
+					<button class="btn btn-default" onclick="activemqTest1()" type="button">
+						activemqTest-配置文件實現
+					</button>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 <script type="text/javascript">
@@ -78,6 +93,26 @@
 	function download2()
 	{
 		window.location.href="demo/download2.do";
+	}
+	
+	function download3()
+	{
+		window.location.href="demo/download3.do";
+	}
+	
+	function activemqTest()
+	{
+		$.ajax({
+			url : "demo/activemqTest.do",
+			type : "POST"
+		});
+	}
+	function activemqTest1()
+	{
+		$.ajax({
+			url : "demo/activemqTest1.do",
+			type : "POST"
+		});
 	}
 </script>
 

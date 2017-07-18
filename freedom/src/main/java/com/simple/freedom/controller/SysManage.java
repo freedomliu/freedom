@@ -24,7 +24,7 @@ public class SysManage extends BaseController{
 		String page= request.getParameter("pageName")+"";
 		ModelAndView mv=getMV();
 		mv.setViewName(page);
-		logger.error(":sddddddddddddd");
+
 		return mv;
 	}
 	

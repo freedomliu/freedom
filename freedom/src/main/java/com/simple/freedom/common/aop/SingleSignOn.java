@@ -35,7 +35,6 @@ public class SingleSignOn implements HttpSessionListener{
 	
 	@Override
 	public void sessionCreated(HttpSessionEvent arg0) {
-		System.out.println(arg0.getSession().getId());
 		SingleSignOn.count++;
 	}
 
