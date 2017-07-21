@@ -31,7 +31,7 @@ public class Login extends BaseController
 	 * @param response
 	 * @throws IOException 
 	 */
-	@RequestMapping(value="/getImageCode.do",method=RequestMethod.GET)
+	@RequestMapping(value="/getImageCode.do")
 	public void getImageCode(HttpServletRequest request,HttpServletResponse response) throws IOException
 	{
 		  response.setContentType("image/jpeg"); //禁止图像缓存。
@@ -101,6 +101,7 @@ public class Login extends BaseController
 		{
 			request.getSession().setAttribute(SysVariable.USERSESSION, user);
 			SingleSignOn.sessionUserCreated(user.getUsername(), request.getSession());
+			
 			response.sendRedirect(request.getContextPath()+"/main.do");
 			return null;
 		}

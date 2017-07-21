@@ -10,4 +10,6 @@ public class SysVariable {
 	public static final String USERSESSION = "usersession";
 	// 消息
 	public static final String MSG="msg";
+	// 在线人数
+	public static final String USERNUM="usernum";
 }

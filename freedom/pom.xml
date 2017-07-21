@@ -9,7 +9,7 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<!-- spring版本号 -->
-		<spring.version>4.2.5.RELEASE</spring.version>
+		<spring.version>4.0.2.RELEASE</spring.version>
 		<!-- mybatis版本号 -->
 		<mybatis.version>3.2.6</mybatis.version>
 		<!-- log4j日志文件管理包版本 -->
@@ -186,18 +186,16 @@
 			<version>2.6.12</version>
 		</dependency>
 
-		<!-- activemq用到的jar 开始-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jms</artifactId>
 			<version>4.3.4.RELEASE</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-pool</artifactId>
 			<version>5.14.5</version>
 		</dependency>
-		<!-- activemq用到的jar 结束-->
 	</dependencies>
 </project>

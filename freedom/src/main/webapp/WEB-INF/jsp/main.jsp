@@ -5,7 +5,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">xxxxxx</a>
+      <a class="navbar-brand" href="#">freedom</a>
     </div>
     <div>
         <ul class="nav navbar-nav navbar-left">
