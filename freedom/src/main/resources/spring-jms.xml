@@ -16,7 +16,7 @@
         <property name="connectionFactory" ref="connectionFactory"/>  
         <property name="defaultDestinationName" value="subject" />  
         <!-- 区别它采用的模式为false是p2p为true是订阅 -->  
-        <property name="pubSubDomain" value="true" /> 
+        <property name="pubSubDomain" value="false  " /> 
     </bean>  
       
     <!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供-->  
@@ -35,12 +35,17 @@
         <constructor-arg>  
             <value>sessionAwareQueue</value>  
         </constructor-arg>  
-    </bean>  
+    </bean>
+    <bean id="sessionAwareQueueBack" class="org.apache.activemq.command.ActiveMQQueue">  
+        <constructor-arg>  
+            <value>sessionAwareQueueBack</value>  
+        </constructor-arg>  
+    </bean>    
     <!-- 可以获取session的MessageListener -->  
     <bean id="consumerSessionAwareMessageListener" class="com.simple.freedom.common.aop.ConsumerSessionAwareMessageListener">  
         <property name="destination" ref="sessionAwareQueue"/>  
     </bean>  
-
+    
     <bean id="sessionAwareListenerContainer"  
         class="org.springframework.jms.listener.DefaultMessageListenerContainer">  
         <property name="connectionFactory" ref="connectionFactory" />  

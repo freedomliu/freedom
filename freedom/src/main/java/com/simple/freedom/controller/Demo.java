@@ -197,15 +197,7 @@ public class Demo extends BaseController {
 	@RequestMapping("activemqTest1")
 	public void activemqTest1(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		activeMqHelper2.send(new MessageCreator() {
-
-			@Override
-			public Message createMessage(Session session) throws JMSException {
-				// TODO Auto-generated method stub
-				return session.createObjectMessage(new User());
-			}
-
-		});
+		activeMqHelper2.send();
 	}
 
 }
