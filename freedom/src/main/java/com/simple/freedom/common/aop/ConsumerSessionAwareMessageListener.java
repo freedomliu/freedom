@@ -21,13 +21,15 @@ public class ConsumerSessionAwareMessageListener implements
 		System.out.println("收到一条消息");
 		System.out.println("消息内容是：" + message.toString());
 		
-		MessageProducer producer = session.createProducer(destination);
+		Destination destination1= message.getJMSReplyTo();
+		MessageProducer producer = session.createProducer(destination1);
 		User user=new User();
 		Message textMessage = session
 				.createObjectMessage(user);
-		Destination destination1= message.getJMSReplyTo();
+		
 		textMessage.setJMSCorrelationID(message.getJMSCorrelationID());
-		producer.send(message.getJMSReplyTo(),textMessage);
+		textMessage.setJMSReplyTo(destination);
+		producer.send(textMessage);
 	}
 
 	public Destination getDestination() 

@@ -10,12 +10,23 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.jms.Connection;
+import javax.jms.ConnectionFactory;
+import javax.jms.DeliveryMode;
+import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
+import javax.jms.MessageConsumer;
+import javax.jms.MessageListener;
+import javax.jms.MessageProducer;
+import javax.jms.ObjectMessage;
 import javax.jms.Session;
+import javax.jms.TextMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.activemq.ActiveMQConnection;
+import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -197,7 +208,76 @@ public class Demo extends BaseController {
 	@RequestMapping("activemqTest1")
 	public void activemqTest1(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		
 		activeMqHelper2.send();
-	}
 
+		//System.out.println("over");
+        // ConnectionFactory：连接工厂，JMS用它创建连接
+
+		ConnectionFactory connectionFactory;
+
+        // Connection：JMS客户端到JMS Provider的连接
+
+        Connection connection = null;
+
+        // Session：一个发送或接收消息的线程
+
+        Session session;
+
+        // Destination：消息的目的地;消息发送给谁.
+
+        Destination destination;
+
+        // MessageProducer：消息发送者
+
+        MessageProducer producer;
+
+        // TextMessage message;
+
+        //构造ConnectionFactory实例对象，此处采用ActiveMq的实现jar
+
+        connectionFactory = new ActiveMQConnectionFactory(
+
+                ActiveMQConnection. DEFAULT_USER,
+
+                ActiveMQConnection. DEFAULT_PASSWORD,
+
+                "tcp://localhost:61616");
+
+        try {
+
+        	connection = connectionFactory.createConnection();
+			// 启动
+			connection.start();
+			// 获取操作连接
+			session = connection.createSession(Boolean.TRUE,
+					Session.AUTO_ACKNOWLEDGE);
+			// 获取session注意参数值xingbo.xu-queue是一个服务器的queue，须在在ActiveMq的console配置
+			Destination destinationBack = session.createQueue("sessionAwareQueueBack");
+///////////////
+
+            MessageConsumer consumer = session.createConsumer(destinationBack);
+            ObjectMessage message = (ObjectMessage) consumer.receive(10000);
+            System.out.println("成功了！！！！！！！！！！！！！！！！！！！");
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        } finally {
+        	
+            try {
+
+                if ( null != connection)
+
+                    connection.close();
+
+            } catch (Throwable ignore) {
+
+            }
+
+        }
+
+
+    
+	}
 }

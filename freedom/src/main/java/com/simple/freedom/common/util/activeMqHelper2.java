@@ -51,6 +51,8 @@ public class activeMqHelper2 {
 
 		};
 		
-		template.send(destination,messageCreator); 
+		template.send(destination,messageCreator);
+		
+		
 	}
 }
