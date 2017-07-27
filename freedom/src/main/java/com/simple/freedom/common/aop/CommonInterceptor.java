@@ -21,7 +21,7 @@ public class CommonInterceptor implements HandlerInterceptor {
 		if (sessionObj != null) {
 			return true;
 		}
-		response.sendRedirect(request.getContextPath()+"/login.do");
+		response.sendRedirect(request.getContextPath()+"/login");
 		return false;
 	}
 

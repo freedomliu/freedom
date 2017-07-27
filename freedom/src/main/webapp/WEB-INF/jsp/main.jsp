@@ -37,7 +37,7 @@
           </ul>
       </li>
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
-      <li><a href="${pageContext.request.contextPath}/sys/logout.do"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+      <li><a href="${pageContext.request.contextPath}/sys/logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
     </ul>
   </div>
 </nav>
@@ -47,7 +47,7 @@
 </body>
 </html>
 <script>
-	var urlFirst="${pageContext.request.contextPath}/sys/forwardPage.do?pageName=";
+	var urlFirst="${pageContext.request.contextPath}/sys/forwardPage?pageName=";
 	$(function(){
 		$("#contentMain").load(urlFirst+"contentPage/first");
 	})

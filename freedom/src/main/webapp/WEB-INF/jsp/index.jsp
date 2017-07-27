@@ -18,7 +18,7 @@
 			<div class="panel-heading">登陆</div>
 			<div class="panel-body">
 				<form id="formUser" method="Post"
-					action="${pageContext.request.contextPath}/check.do">
+					action="${pageContext.request.contextPath}/check">
 					<div id="loginBox" style="height: 150; width: 250;">
 						<div class="input-group">
 							<span class="input-group-addon "> <span
@@ -38,7 +38,7 @@
 						</div>
 						<div style="width: 250px; height: 40; margin-top: 10px">
 							<img style="float: left;" alt="无法加载" id="codeImg"
-								onclick="reImg()"<%-- src="${pageContext.request.contextPath}/getImageCode.do" --%>>
+								onclick="reImg()"<%-- src="${pageContext.request.contextPath}/getImageCode" --%>>
 							<input style="float: left; width: 150px" type="text"
 								autocomplete=off class="form-control" name="imgCode"
 								placeholder="验证码">
@@ -64,7 +64,7 @@
 		$("[data-toggle='tooltip']").tooltip();
 		$("#codeImg").attr(
 				'src',
-				"${pageContext.request.contextPath}/getImageCode.do?a="
+				"${pageContext.request.contextPath}/getImageCode?a="
 						+ new Date());
 	});
 
@@ -83,7 +83,7 @@
 	function reImg() {
 		$("#codeImg").attr(
 				'src',
-				"${pageContext.request.contextPath}/getImageCode.do?a="
+				"${pageContext.request.contextPath}/getImageCode?a="
 						+ new Date());
 	}
 </script>

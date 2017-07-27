@@ -60,7 +60,7 @@
 			var formData = new FormData();
 			formData.append("file", document.getElementById("file1").files[0]);
 			$.ajax({
-				url : "demo/fileuploadExcel.do",
+				url : "demo/fileuploadExcel",
 				type : "POST",
 				data : formData,
 				contentType : false,
@@ -92,25 +92,25 @@
 	
 	function download2()
 	{
-		window.location.href="demo/download2.do";
+		window.location.href="demo/download2";
 	}
 	
 	function download3()
 	{
-		window.location.href="demo/download3.do";
+		window.location.href="demo/download3";
 	}
 	
 	function activemqTest()
 	{
 		$.ajax({
-			url : "demo/activemqTest.do",
+			url : "demo/activemqTest",
 			type : "POST"
 		});
 	}
 	function activemqTest1()
 	{
 		$.ajax({
-			url : "demo/activemqTest1.do",
+			url : "demo/activemqTest1",
 			type : "POST"
 		});
 	}

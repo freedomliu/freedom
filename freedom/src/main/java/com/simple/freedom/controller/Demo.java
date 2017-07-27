@@ -12,22 +12,16 @@ import java.util.List;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
-import javax.jms.DeliveryMode;
 import javax.jms.Destination;
-import javax.jms.JMSException;
-import javax.jms.Message;
 import javax.jms.MessageConsumer;
-import javax.jms.MessageListener;
 import javax.jms.MessageProducer;
 import javax.jms.ObjectMessage;
 import javax.jms.Session;
-import javax.jms.TextMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,7 +40,7 @@ import com.simple.freedom.test.beans.User;
 @RequestMapping("/demo")
 public class Demo extends BaseController {
 
-	@RequestMapping(value = { "/fileuploadExcel.do" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/fileuploadExcel" }, method = RequestMethod.POST)
 	@ResponseBody
 	public String fileuploadExcel(HttpServletRequest request,
 			@RequestParam("file") CommonsMultipartFile uploadFile) {

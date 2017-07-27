@@ -31,7 +31,7 @@ public class Login extends BaseController
 	 * @param response
 	 * @throws IOException 
 	 */
-	@RequestMapping(value="/getImageCode.do")
+	@RequestMapping(value="/getImageCode")
 	public void getImageCode(HttpServletRequest request,HttpServletResponse response) throws IOException
 	{
 		  response.setContentType("image/jpeg"); //禁止图像缓存。
@@ -43,7 +43,7 @@ public class Login extends BaseController
 		  vCode.write(response.getOutputStream()); 
 	}
 	
-	@RequestMapping("/login.do")
+	@RequestMapping("/login")
 	public String login(HttpServletRequest request)
 	{
 		Object msg= request.getSession().getAttribute(SysVariable.MSG);
@@ -55,7 +55,7 @@ public class Login extends BaseController
 		return "index";
 	}
 	
-	@RequestMapping("/main.do")
+	@RequestMapping("/main")
 	public String main(HttpServletRequest request)
 	{
 		return "main";
@@ -69,7 +69,7 @@ public class Login extends BaseController
 	 * @return
 	 * @throws IOException
 	 */
-	@RequestMapping(value="/check.do")
+	@RequestMapping(value="/check")
 	public ModelAndView caseUser(HttpServletRequest request,HttpServletResponse response,UserBean user) throws IOException
 	{
 		ModelAndView mv= getMV();
@@ -102,7 +102,7 @@ public class Login extends BaseController
 			request.getSession().setAttribute(SysVariable.USERSESSION, user);
 			SingleSignOn.sessionUserCreated(user.getUsername(), request.getSession());
 			
-			response.sendRedirect(request.getContextPath()+"/main.do");
+			response.sendRedirect(request.getContextPath()+"/main");
 			return null;
 		}
 		mv.addObject(SysVariable.MSG, "用户名或者密码错误");

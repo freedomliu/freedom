@@ -18,7 +18,7 @@ public class SysManage extends BaseController{
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping("/forwardPage.do")
+	@RequestMapping("/forwardPage")
 	public ModelAndView forwardPage(HttpServletRequest request)
 	{
 		String page= request.getParameter("pageName")+"";
@@ -28,11 +28,11 @@ public class SysManage extends BaseController{
 		return mv;
 	}
 	
-	@RequestMapping("/logout.do")
+	@RequestMapping("/logout")
 	public void logout(HttpServletRequest request,HttpServletResponse response)throws Exception
 	{
 		//request.getSession().removeAttribute(SysVariable.USERSESSION);
 		request.getSession().invalidate();
-		response.sendRedirect(request.getContextPath()+"/login.do");
+		response.sendRedirect(request.getContextPath()+"/login");
 	}
 }
