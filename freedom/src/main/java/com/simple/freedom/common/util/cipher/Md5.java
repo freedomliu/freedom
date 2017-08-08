@@ -1,4 +1,4 @@
-package com.simple.freedom.common.util;
+package com.simple.freedom.common.util.cipher;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
