@@ -1,6 +1,5 @@
 package com.simple.freedom.common.util.cipher;
 /*字符串　DESede(3DES)　加密*/
-//注：百度代码识别BUG，代码中空格属全角。拷贝代码之后请自行修改。
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
@@ -95,7 +94,7 @@ public class Des3 {
         byte[] encoded = encryptMode(keyBytes, szSrc.getBytes());
         
         System.out.println("加密后的字符串:" + bytesToHexString(encoded));
-        //System.out.println("加密后的字符串:" + Base64Utiles.encode(encoded));
+        System.out.println("加密后的字符串:" + Base64Utils.encode(encoded));
         byte[] srcBytes = decryptMode(keyBytes, encoded);
         System.out.println("解密后的字符串:" + (new String(srcBytes)));
     }

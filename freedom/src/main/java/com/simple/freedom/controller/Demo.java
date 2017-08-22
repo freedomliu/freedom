@@ -44,7 +44,6 @@ public class Demo extends BaseController {
 	@ResponseBody
 	public String fileuploadExcel(HttpServletRequest request,
 			@RequestParam("file") CommonsMultipartFile uploadFile) {
-
 		String filename = uploadFile.getOriginalFilename();
 		File fileTemp = new File("D:/" + filename);
 		try {
