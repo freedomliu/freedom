@@ -32,6 +32,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.simple.freedom.common.aop.BaseController;
 import com.simple.freedom.common.util.ExcelHelper;
+import com.simple.freedom.common.util.RedisUtil;
 import com.simple.freedom.common.util.WebSocket;
 import com.simple.freedom.common.util.ZipHelper;
 import com.simple.freedom.common.util.activeMqHelper;
@@ -195,7 +196,6 @@ public class Demo extends BaseController {
 	}
 	
 	/**
-	 * java 實現activeMQ
 	 * 
 	 * @param request
 	 * @param response
@@ -207,6 +207,18 @@ public class Demo extends BaseController {
 		User user = new User();
 		user.setId(111111);
 		activeMqHelper.setMessage("smsQueue", user);
+	}
+	/**
+	 * 
+	 * @param request
+	 * @param response
+	 * @throws Exception
+	 */
+	@RequestMapping("redisTest")
+	public void redisTest(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		RedisUtil.setValue("name", "lxt");
+		System.out.println(	RedisUtil.getValue("name"));
 	}
 
 	/**

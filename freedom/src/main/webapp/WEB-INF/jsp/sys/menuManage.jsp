@@ -50,6 +50,9 @@
 					<button class="btn btn-default" onclick="websocketTest()" type="button">
 						[websocket]
 					</button>
+					<button class="btn btn-default" onclick="redisTest()" type="button">
+						[redis]
+					</button>
 				</div>
 			</div>
 		</div>
@@ -178,6 +181,21 @@ function send() {
 		$.ajax({
 			data:{"sessionid":sessionid},
 			url : "demo/websocket",
+			type : "POST",
+			success : function(data)
+			{
+				debugger;
+			},
+			error: function(XMLHttpRequest, textStatus, errorThrown)
+			{
+				debugger;
+			}
+		});
+	}
+	function redisTest()
+	{
+		$.ajax({
+			url : "demo/redisTest",
 			type : "POST",
 			success : function(data)
 			{
