@@ -66,7 +66,6 @@
 				contentType : false,
 				processData : false,
 				success : function(data) {
-					debugger;
 					//data = eval("(" + data + ")");
 						alert(data);
 

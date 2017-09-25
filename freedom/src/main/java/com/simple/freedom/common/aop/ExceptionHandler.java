@@ -1,5 +1,8 @@
 package com.simple.freedom.common.aop;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,7 +24,11 @@ public class ExceptionHandler implements HandlerExceptionResolver {
     	mv.setViewName("sys/exception");
     	mv.addObject("exception",ex);
     	Logger logger = Logger.getLogger(handler.getClass());
-    	logger.error(ex);
+    	StringWriter sw = new StringWriter();    
+    	PrintWriter pw = new PrintWriter(sw);    
+    	ex.printStackTrace(pw);    
+    	String msg=sw.toString();
+    	logger.error(msg);
         return mv;  
     }  
   

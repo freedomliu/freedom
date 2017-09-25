@@ -54,7 +54,6 @@
 
 	function forwardPage(pageName)
 	{
-		debugger;
 		$("#contentMain").load(urlFirst+pageName);
 	}
 </script>
