@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
@@ -31,6 +32,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.simple.freedom.common.aop.BaseController;
 import com.simple.freedom.common.util.ExcelHelper;
+import com.simple.freedom.common.util.WebSocket;
 import com.simple.freedom.common.util.ZipHelper;
 import com.simple.freedom.common.util.activeMqHelper;
 import com.simple.freedom.common.util.activeMqHelper2;
@@ -39,7 +41,8 @@ import com.simple.freedom.test.beans.User;
 @Controller
 @RequestMapping("/demo")
 public class Demo extends BaseController {
-
+	private WebSocket webSocket;
+	
 	@RequestMapping(value = { "/fileuploadExcel" }, method = RequestMethod.POST)
 	@ResponseBody
 	public String fileuploadExcel(HttpServletRequest request,
@@ -176,6 +179,21 @@ public class Demo extends BaseController {
 
 	}
 
+	@RequestMapping("websocket")
+	public void  websocket(HttpServletRequest request,
+			HttpServletResponse response,String sessionid) throws IOException
+	{
+		CopyOnWriteArraySet<WebSocket> set=WebSocket.webSocketSet;
+		for(WebSocket item :set)
+		{
+			if(item.getSession().getId().equals(sessionid))
+			{
+				webSocket=item;
+			}
+		}
+		webSocket.sendMessage("来自于websocket");
+	}
+	
 	/**
 	 * java 實現activeMQ
 	 * 
@@ -247,7 +265,6 @@ public class Demo extends BaseController {
 					Session.AUTO_ACKNOWLEDGE);
 			// 获取session注意参数值xingbo.xu-queue是一个服务器的queue，须在在ActiveMq的console配置
 			Destination destinationBack = session.createQueue("sessionAwareQueueBack");
-///////////////
 
             MessageConsumer consumer = session.createConsumer(destinationBack);
             ObjectMessage message = (ObjectMessage) consumer.receive(10000);
@@ -269,8 +286,5 @@ public class Demo extends BaseController {
             }
 
         }
-
-
-    
 	}
 }

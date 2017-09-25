@@ -20,16 +20,16 @@ public class ExceptionHandler implements HandlerExceptionResolver {
     @Override  
     public ModelAndView resolveException(HttpServletRequest request,  
             HttpServletResponse response, Object handler, Exception ex) { 
-    	ModelAndView mv= new ModelAndView();
-    	mv.setViewName("sys/exception");
-    	mv.addObject("exception",ex);
     	Logger logger = Logger.getLogger(handler.getClass());
     	StringWriter sw = new StringWriter();    
     	PrintWriter pw = new PrintWriter(sw);    
     	ex.printStackTrace(pw);    
     	String msg=sw.toString();
     	logger.error(msg);
-        return mv;  
+    	ModelAndView mv= new ModelAndView();
+    	mv.setViewName("sys/exception");
+    	mv.addObject("exception",ex);
+        return mv;
     }  
   
 }
