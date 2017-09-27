@@ -2,6 +2,6 @@ activemq网站下载：http://activemq.apache.org/
 我下载的时候是 ActiveMQ 5.8.0 Release版 
 
 controller中没有返回值的异常try catch
-controller中有返回值则可以throw  异常类会去处理
+controller中有返回值则可以throw  异常类会去处理(不适用于ajax  具体再议)
 
 有道云笔记中记载了代码生成器及使用方法
