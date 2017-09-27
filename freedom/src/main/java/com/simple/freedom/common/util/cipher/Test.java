@@ -8,7 +8,7 @@ public class Test {
 	
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		// sha1 加密
-		System.out.println(DigestUtils.sha1Hex("abc".getBytes()));
+		System.out.println(DigestUtils.sha1Hex(("{\"queryId\":\"123\"}"+1506407273).getBytes()));
 
 	}
 }
